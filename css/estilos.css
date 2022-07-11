@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.img-fondo {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../imagenes/familia-en-casa.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 97vh;
+}
+
+
+.flex-contenedor-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style-type: none;
+}
+
+.flex-contenedor-nav li {
+    margin: .5rem;
+    padding: .7rem;
+}
+
+.flex-contenedor-nav li a {
+    text-decoration: none;
+    color: #d6e0ff;
+    font-size: 1.3rem;
+    background-color: #274156;
+    padding: .7rem;
+    border-radius: .5rem;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+}
+.mix-blend {
+    padding: 2rem;
+    background-color: #d7d9ce;
+    mix-blend-mode: screen;
+    border-radius: 1rem;
+    font-size: 3rem;
+}
+.sub-titulo {
+    color: #b8c4be;
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/* --------Sobre nosotros--------*/
+.sobre-nosotros {
+    background-color: #274156;
+    padding-bottom: 2rem;
+}
+
+.sobre-nosotros-titulo {
+    color: #DAD7CD;
+    font-weight: 200;
+    font-size: 2rem;
+    padding: 1rem 0 1rem 0;
+
+}
+.img-sobre-nosotros {
+    border-radius: 1rem;
+}
+.contenedor-texto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.texto-sobre-nosotros {
+    color: #b8c4be;
+    line-height: 2.2rem;
+    font-size: 1.1rem;
+}
+
+/* --------Comprar--------*/
+
+.comprar {
+    padding-bottom: 2rem;
+    /* background-image: linear-gradient(to bottom, #a3b18a, #95a87f, #879f75, #79966b, #6b8d62, #62865c, #597e57, #507751, #4a704d, #456849, #3f6144, #3a5a40); */
+    /* background-color: #d7d9ce; */
+    background-color: #D6E0FF;
+}
+.comprar-titulo {
+    color: #241E16;
+    font-weight: 300;
+    font-size: 2rem;
+    padding: 1rem 0 1rem 0;
+}
+
+#selecBarrio {
+    width: 70%;
+    height: 3.5rem;
+    border: none;
+    border-radius: .7rem;
+    background-color: #274156;
+    color: #FBFCFF;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.agenda {
+    width: 70%;
+    height: 3.5rem;
+    border: none;
+    border-radius: .7rem;
+    background-color: #274156;
+    color: #FBFCFF;
+    font-size: 1.1rem;
+}
+
+/* --------Cards de casas--------*/
+#contenedor-cards {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: space-around;
+}
+
+.card {
+    padding: .7rem;
+}
+
+.centrar-boton {
+    display: flex;
+    justify-content: center;
+}
+.boton-agregar {
+    text-decoration: none;
+    color: #d6e0ff;
+    background-color: #274156;
+    padding: .7rem;
+    border-radius: .5rem;
+}
+.boton-agregar:hover {
+    cursor: pointer;
+    color: #274156;
+    background-color: #d6e0ff;
+    border: 1px solid #274156;
+    transition: .5s;
+}
+
+
+
+/* --------Contacto--------*/
+
+.contacto {
+    background-color: #274156;
+    padding-bottom: 2rem;
+}
+.contacto-titulo {
+    color: #b8c4be;
+    font-weight: 200;
+    font-size: 2rem;
+    padding: 1rem 0 1rem 0;
+}
+
+.formulario-flex {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.nombre-apellido {
+    display: flex;
+    justify-content: space-between;
+}
+.formulario-elemento {
+    height: 2.5rem;
+    border: none;
+    border-radius: 1rem;
+    width: 90%;
+}
+.textarea-contacto {
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.boton-contacto {
+    border: none;
+    height: 2rem;
+    border-radius: .7rem;
+    text-decoration: none;
+    background-color: #b8c4be;
+    color: #274156;
+}
+.boton-contacto-contenedor {
+    width: 15%;
+   height: 2rem;
+}
+.mapouter{
+    position:relative;
+    text-align:right;
+    height:300px;
+    width:500px;
+    margin-left: 2rem;
+}
+.gmap_canvas {
+    overflow:hidden;
+    background:none;
+    height:300px;
+    width:500px;
+    border-radius: 1rem;
+}
+
+
+
+/* --------Footer--------*/
+footer {
+    background-color: #d7d9ce;
+}
+
+.icono-footer {
+    text-decoration: none;
+    color: #274156;
+}
+.icono-footer:hover {
+    color: #274156;
+    transform: scale(1.07,1.07);
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    font-size: 3rem;
+}
+
+/*Lo que se va a ver dentro de la agenda*/
+.flex-contenedor-agenda {
+    display: flex;
+    flex-direction: column;
+}
+
+.agenda-flex {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #000;
+    flex-direction: row;
+}
+
+.img-agenda {
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.titulo-agenda {
+    padding: 1rem;
+}
+
+.fecha-titulo {
+    padding-top: 1rem;
+}
+.botones-agenda{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.btn-confirmar {
+    padding: .5rem;
+    height: 2rem;
+    background-color: #1c6e8c;
+    border: none;
+    border-radius: .2rem;
+    margin: .5rem;
+}
+.btn-eliminar {
+    padding: .5rem;
+    height: 2rem;
+    background-color: #605856;
+    border: none;
+    border-radius: .2rem;
+    margin: .5rem;
+}
+.calendario {
+    padding: .7rem;
+    margin: .3rem;
+}
+.flex-contenedor-agenda {
+    display: flex;
+    justify-content: center;
+}
+
+/* --------Modal--------*/
+.ventana-emergente {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: scroll;
+}
+.modal-container {
+    width: 90%;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 1rem;
+    padding: 1em;
+    place-items: center;
+    transition: opacity .6s;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal-close {
+    text-decoration: none;
+    color: #fff;
+    background-color: #605856;
+    padding: 1em;
+    border-radius: .5rem;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 1em;
+}
+.modal-close:hover {
+    color: #fff;
+    transform: scale(1.05, 1.05);
+}
+
+.modal-show {
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+}
