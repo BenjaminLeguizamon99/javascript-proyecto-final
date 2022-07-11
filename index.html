@@ -22,7 +22,7 @@
             <ul class="flex-contenedor-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-                <li><a href="#comprar">Comprar</a></li>
+                <li><a href="#comprar">Ver casas</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </div>
@@ -56,7 +56,7 @@
     <section class="comprar">
         <div class="container">
             <a name="comprar"></a>
-            <h4 class="text-center comprar-titulo">Comprar</h4>
+            <h4 class="text-center comprar-titulo">Nuestras propiedades disponibles</h4>
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-center">
                     <select id="selecBarrio">
@@ -91,25 +91,25 @@
         <h4 class="text-center contacto-titulo" name="contacto">Contacto</h4>
             <div class="row">
                 <div class="col-md-6">
-                    <form class="formulario-flex">
+                    <form class="formulario-flex" id="formulario">
                         <div class="row nombre-apellido">
-                            <input type="text" placeholder="Nombre..." class="col-md-6 formulario-elemento">
-                            <input type="text" placeholder="Apellido..." class="col-md-6 formulario-elemento">
+                            <input type="text" placeholder="Nombre..." class="col-md-6 formulario-elemento" id="formulario-nombre">
+                            <input type="text" placeholder="Apellido..." class="col-md-6 formulario-elemento" id="formulario-apellido">
                         </div>
                         <div class="row">
-                             <input type="email" placeholder="Email..." class="formulario-elemento">
+                             <input type="email" placeholder="Email..." class="formulario-elemento" id="formulario-email">
                         </div>
                        <div class="row">
-                            <textarea name="" id="" cols="30" rows="7" placeholder="Escriba su consulta..." class="textarea-contacto"></textarea>
+                            <textarea cols="30" rows="7" placeholder="Escriba su consulta..." class="textarea-contacto"></textarea>
                        </div>
                        <div class="row boton-contacto-contenedor">
                             <button class="boton-contacto" type="button">Enviar!</button>
                        </div>   
                     </form>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="mapouter"><div class="gmap_canvas"><iframe width="500" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=Av.%20Hip%C3%B3lito%20Yrigoyen%20325,%20X5000%20C%C3%B3rdoba&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://putlocker-is.org"></a><br><a href="https://www.embedgooglemap.net"></a></div></div>
-                </div> 
+                </div>  -->
             </div>
         </div>
     </section>
@@ -131,9 +131,9 @@
     <footer>
         <div class="container">
             <div class="col-md-12 footer-container">
-                <a href="#" class="icono-footer" target="_blank"> <i class="fa-brands fa-instagram"></i> </a>
-                <a href="#" class="icono-footer" target="_blank"> <i class="fa-brands fa-whatsapp"></i> </a>
-                <a href="#" class="icono-footer" target="_blank"> <i class="fa-brands fa-facebook-f"></i> </a>
+                <a href="https://www.instagram.com/" class="icono-footer" target="_blank"> <i class="fa-brands fa-instagram"></i> </a>
+                <a href="https://web.whatsapp.com/" class="icono-footer" target="_blank"> <i class="fa-brands fa-whatsapp"></i> </a>
+                <a href="https://www.facebook.com/" class="icono-footer" target="_blank"> <i class="fa-brands fa-facebook-f"></i> </a>
             </div>
         </div>
     </footer>

@@ -105,15 +105,7 @@ function mostrarCasasEnModal (casaAgregar) {
         actualizarAgenda();
         localStorage.setItem(`agenda`, JSON.stringify(agendaVisitas));
     })
-
-    //Boton para confirmar una fecha de visita!
-    // const btnConfirmarFecha = document.getElementById(`btn-confirmar-${casaAgregar.id}`);
-    // const dateControl = document.querySelector(`input[type="date"]`);
-    // const elementoAReemplazar = document.querySelectorAll(".elemento-a-reemplazar");
-    // btnConfirmarFecha.addEventListener("click", () => {
-    //     console.log(dateControl.value);
-    //     elementoAReemplazar.innerText = "Cambiar fecha";
-    // })  
+ 
     const btnConfirmarFecha = document.getElementById(`btn-confirmar-${casaAgregar.id}`);
     btnConfirmarFecha.addEventListener("click", ()=>{
         swal({
@@ -160,12 +152,42 @@ closeModal.addEventListener("click", () => {
 })
 
 //Sweet alert al boton de enviar formulario
+// const botonFormulario = document.querySelector(".boton-contacto");
+// botonFormulario.addEventListener("click", ()=>{
+//     swal({
+//         title: "Genial",
+//         text: "Tu consulta ha sido enviada con éxito!",
+//         icon: "success",
+//         showConfirmButton: false,
+//     })
+// })
+
+//Validación del formulario.
+
+let nombre = document.getElementById("formulario-nombre");
+let apellido = document.getElementById("formulario-apellido");
+let email = document.getElementById("formulario-email");
+let textArea = document.querySelector(".textarea-contacto");
 const botonFormulario = document.querySelector(".boton-contacto");
-botonFormulario.addEventListener("click", ()=>{
-    swal({
-        title: "Genial",
-        text: "Tu consulta ha sido enviada con éxito!",
-        icon: "success",
-        showConfirmButton: false,
-    })
-})
+
+const formulario = document.getElementById("formulario");
+formulario.addEventListener("input", (e) => {
+    e.preventDefault();
+    if((nombre.value.length != 0) && (apellido.value.length != 0) && (email.value.length !=0) && (textArea.value.length != 0)) {
+        botonFormulario.addEventListener("click", () => {
+            swal ({
+                title: "Genial",
+                text: "Tu mensaje ha sido enviado con éxito!",
+                icon: "success",
+            })
+        })
+    } else {
+        botonFormulario.addEventListener ("click", () => {
+            swal ({
+                title: "Error",
+                text: "Debe completar todos los campos correctamente",
+                icon: "error",
+            })
+        })
+    }
+});
