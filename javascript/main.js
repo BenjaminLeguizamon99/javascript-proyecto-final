@@ -1,4 +1,5 @@
-import {casas} from "./arrayCasas.js"
+// import {casas} from "./arrayCasas.js"
+import { getData } from "./getData.js";
 
 /*--------Filtro de casas--------*/ 
 const selectorBarrio = document.getElementById("selecBarrio");
@@ -6,7 +7,7 @@ const selectorBarrio = document.getElementById("selecBarrio");
 selectorBarrio.addEventListener("change", () => {
     console.log(selectorBarrio.value);
     if(selectorBarrio.value=="all"){
-        mostrarCasas (casas);
+        mostrarCasas ();
     } else {
         mostrarCasas(casas.filter(elemento => elemento.barrio == selectorBarrio.value));
     }
@@ -15,9 +16,10 @@ selectorBarrio.addEventListener("change", () => {
 /*--------Renderizado de casas--------*/ 
 const contenedorCasas = document.getElementById("contenedor-cards");
 
-function mostrarCasas (array) {
+const mostrarCasas = async () => {
+    const casas = await getData();
     contenedorCasas.innerHTML = "";
-    array.forEach(el => {
+    casas.forEach(el => {
         let div = document.createElement("div");
         div.className = `container`;
         div.className = `col-md-3`;
@@ -50,7 +52,7 @@ function mostrarCasas (array) {
 
     });
 }
-mostrarCasas(casas);
+mostrarCasas();
 
 
 //Creo un array vacio de la agenda
@@ -150,17 +152,6 @@ openModal.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
     modal.classList.toggle("modal-show");
 })
-
-//Sweet alert al boton de enviar formulario
-// const botonFormulario = document.querySelector(".boton-contacto");
-// botonFormulario.addEventListener("click", ()=>{
-//     swal({
-//         title: "Genial",
-//         text: "Tu consulta ha sido enviada con éxito!",
-//         icon: "success",
-//         showConfirmButton: false,
-//     })
-// })
 
 //Validación del formulario.
 
