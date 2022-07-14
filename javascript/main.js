@@ -1,24 +1,14 @@
-// import {casas} from "./arrayCasas.js"
-import { getData } from "./getData.js";
-
-/*--------Filtro de casas--------*/ 
-const selectorBarrio = document.getElementById("selecBarrio");
-
-selectorBarrio.addEventListener("change", () => {
-    console.log(selectorBarrio.value);
-    if(selectorBarrio.value=="all"){
-        mostrarCasas ();
-    } else {
-        mostrarCasas(casas.filter(elemento => elemento.barrio == selectorBarrio.value));
-    }
-})
+import { getData } from "../getData.js";
 
 /*--------Renderizado de casas--------*/ 
 const contenedorCasas = document.getElementById("contenedor-cards");
+const casas = await getData();
 
-const mostrarCasas = async () => {
-    const casas = await getData();
+
+const mostrarCasas = async (casas) => {
+      
     contenedorCasas.innerHTML = "";
+    
     casas.forEach(el => {
         let div = document.createElement("div");
         div.className = `container`;
@@ -52,7 +42,39 @@ const mostrarCasas = async () => {
 
     });
 }
-mostrarCasas();
+
+/*--------Filtro de casas--------*/ 
+//Genero un objeto con la búsqueda (En un futuro, con esto puedo agregar más filtros de búsqueda)
+const datosBusqueda = {
+    barrio: ``,
+    habitaciones: ``,
+    banios: ``,
+    precio: ``,
+    mts2: ``,
+    image: ``,
+    id: ``,
+}
+
+const selectorBarrio = document.getElementById("selecBarrio");
+selectorBarrio.addEventListener("change", (e)=> {
+    datosBusqueda.barrio = e.target.value;
+    filtrarCasas();
+})
+
+function filtrarCasas () {
+    const resultado = casas.filter(filtrarBarrio);
+    mostrarCasas(resultado);
+}
+
+function filtrarBarrio (casa) {
+    const {barrio} = datosBusqueda;
+    if (barrio) {
+        return casa.barrio === barrio;
+    }
+    return casa;
+}
+
+mostrarCasas(casas);
 
 
 //Creo un array vacio de la agenda
@@ -60,7 +82,7 @@ let agendaVisitas = [];
 
 
 //Funcion agregar a la agenda
-function agregarAgenda(id) {
+function agregarAgenda (id)  {
     let casaAgregar = casas.find(item => item.id == id);
     agendaVisitas.push(casaAgregar);
     mostrarCasasEnModal(casaAgregar); // A medida que se va agregando la casa al array, se la muestra en la agenda.
@@ -114,7 +136,8 @@ function mostrarCasasEnModal (casaAgregar) {
             title: "Listo!",
             text: "Se agendó la visita para la fecha seleccionada",
             icon: "success",
-            showConfirmButton: false,
+            button: false,
+            timer: 2000,
         }
         )
     })

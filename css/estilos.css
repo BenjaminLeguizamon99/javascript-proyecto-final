@@ -14,26 +14,24 @@
     height: 97vh;
 }
 
-
-.flex-contenedor-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    list-style-type: none;
-}
-
-.flex-contenedor-nav li {
-    margin: .5rem;
-    padding: .7rem;
-}
-
-.flex-contenedor-nav li a {
+.nav-list-item {
+    font-size: 1.5rem;
+    margin: 1rem;
+    color: #DAD7CD;
     text-decoration: none;
-    color: #d6e0ff;
-    font-size: 1.3rem;
-    background-color: #274156;
-    padding: .7rem;
-    border-radius: .5rem;
+    padding: .3rem;
+}
+
+.nav-list-item:hover {
+    border: 1px solid #d7d9ce;
+    color: #d7d9ce;
+    border-radius: .7rem;
+    transition: .5s;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
 }
 
 .titulo {
@@ -53,6 +51,7 @@
     color: #b8c4be;
     font-size: 3rem;
     font-family: 'Oswald', sans-serif;
+    margin-bottom: 1rem;
 }
 
 
@@ -169,6 +168,7 @@
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    justify-content: center;
 }
 
 .nombre-apellido {
@@ -178,7 +178,7 @@
 .formulario-elemento {
     height: 2.5rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: .7rem;
     width: 90%;
 }
 .textarea-contacto {
@@ -196,22 +196,8 @@
     color: #274156;
 }
 .boton-contacto-contenedor {
-    width: 15%;
+    width: 20%;
    height: 2rem;
-}
-.mapouter{
-    position:relative;
-    text-align:right;
-    height:300px;
-    width:500px;
-    margin-left: 2rem;
-}
-.gmap_canvas {
-    overflow:hidden;
-    background:none;
-    height:300px;
-    width:500px;
-    border-radius: 1rem;
 }
 
 
@@ -227,7 +213,7 @@ footer {
 }
 .icono-footer:hover {
     color: #274156;
-    transform: scale(1.07,1.07);
+    transform: scale(1.05,1.05);
 }
 .footer-container {
     display: flex;
@@ -334,4 +320,31 @@ footer {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;
+}
+
+/*--------Responsive--------*/
+@media (max-width: 800px) {
+    .nombre-apellido {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    #formulario-nombre {
+        width: 100%;
+    }
+    #formulario-apellido {
+        width: 100%;
+    }
+   .img-fondo {
+        height: 100vh;
+   }
+   .formulario-elemento, .textarea-contacto {
+    padding-left: 1rem;
+    
+   }
+}
+@media (max-width: 767px) {
+    .botones-responsive {
+        margin-bottom: 1rem;
+    }
 }
