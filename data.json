@@ -5,7 +5,7 @@
         "banios": 2,
         "precio": 270000,
         "mts2": 1675,
-        "image": "imagenes/mendiolaza-1.jpg",
+        "image": "./imagenes/mendiolaza-1.jpg",
         "id": 1
     },
     {
@@ -14,7 +14,7 @@
         "banios": 4,
         "precio": 750000,
         "mts2": 1028,
-        "image": "imagenes/zona-sur-1.jpg",
+        "image": "./imagenes/zona-sur-1.jpg",
         "id": 2
     },
     
@@ -24,7 +24,7 @@
         "banios": 3,
         "precio": 550000,
         "mts2": 1000,
-        "image": "imagenes/mendiolaza-2.jpg",
+        "image": "./imagenes/mendiolaza-2.jpg",
         "id":3
     },
     
@@ -34,7 +34,7 @@
         "banios": 3,
         "precio": 580000,
         "mts2": 800,
-        "image": "imagenes/zona-norte-1.jpg",
+        "image": "./imagenes/zona-norte-1.jpg",
         "id": 4
     },
     
@@ -44,7 +44,7 @@
         "banios": 3,
         "precio": 510000,
         "mts2": 1100,
-        "image": "imagenes/zona-sur-2.jpg",
+        "image": "./imagenes/zona-sur-2.jpg",
         "id": 5
     },
     
@@ -54,7 +54,7 @@
         "banios": 2,
         "precio": 245000,
         "mts2": 510,
-        "image": "imagenes/zona-norte-2.jpg",
+        "image": "./imagenes/zona-norte-2.jpg",
         "id": 6
     },
     
@@ -64,7 +64,7 @@
         "banios": 3,
         "precio": 325000,
         "mts2": 740,
-        "image": "imagenes/zona-chateau-1.jpg",
+        "image": "./imagenes/zona-chateau-1.jpg",
         "id": 7
     },
     
@@ -74,7 +74,7 @@
         "banios": 4,
         "precio": 400000,
         "mts2": 1192,
-        "image": "imagenes/zona-sur-3.jpg",
+        "image": "./imagenes/zona-sur-3.jpg",
         "id": 8
     },
     
@@ -84,7 +84,7 @@
         "banios": 2,
         "precio": 149000,
         "mts2": 280,
-        "image": "imagenes/zona-norte-3.jpg",
+        "image": "./imagenes/zona-norte-3.jpg",
         "id": 9
     },
     
@@ -94,7 +94,7 @@
         "banios": 5,
         "precio": 700000,
         "mts2": 1500,
-        "image": "imagenes/zona-chateau-2.jpg",
+        "image": "./imagenes/zona-chateau-2.jpg",
         "id": 10
     },
     
@@ -104,7 +104,7 @@
         "banios": 3,
         "precio": 650000,
         "mts2": 1500,
-        "image": "imagenes/zona-chateau-3.jpg",
+        "image": "./imagenes/zona-chateau-3.jpg",
         "id": 11
     },
     
@@ -114,7 +114,7 @@
         "banios": 4,
         "precio": 450000,
         "mts2": 403,
-        "image": "imagenes/zona-sur-4.jpg",
+        "image": "./imagenes/zona-sur-4.jpg",
         "id": 12
     },
 
@@ -124,7 +124,7 @@
         "banios": 2,
         "precio": 195000,
         "mts2": 211,
-        "image": "imagenes/zona-chateau-4.jpg",
+        "image": "./imagenes/zona-chateau-4.jpg",
         "id": 13
     },
     
@@ -134,7 +134,7 @@
         "banios": 3,
         "precio": 350000,
         "mts2": 620,
-        "image": "imagenes/zona-chateau-5.jpg",
+        "image": "./imagenes/zona-chateau-5.jpg",
         "id": 14
     },
     
@@ -144,7 +144,7 @@
         "banios": 3,
         "precio": 260000,
         "mts2": 405,
-        "image": "imagenes/zona-norte-4.jpg",
+        "image": "./imagenes/zona-norte-4.jpg",
         "id": 15
     },
     
@@ -194,7 +194,7 @@
         "banios": 4,
         "precio": 450000,
         "mts2": 1600,
-        "image": "imagenes/villa-allende.jpg",
+        "image": "./imagenes/villa-allende.jpg",
         "id": 20
     }
 ] 
