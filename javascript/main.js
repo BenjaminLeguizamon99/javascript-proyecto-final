@@ -44,35 +44,20 @@ const mostrarCasas = async (casas) => {
 }
 
 /*--------Filtro de casas--------*/ 
-//Genero un objeto con la búsqueda (En un futuro, con esto puedo agregar más filtros de búsqueda)
-const datosBusqueda = {
-    barrio: ``,
-    habitaciones: ``,
-    banios: ``,
-    precio: ``,
-    mts2: ``,
-    image: ``,
-    id: ``,
-}
+
 
 const selectorBarrio = document.getElementById("selecBarrio");
-selectorBarrio.addEventListener("change", (e)=> {
-    datosBusqueda.barrio = e.target.value;
-    filtrarCasas();
+selectorBarrio.addEventListener("change", ()=>{
+    console.log(selectorBarrio.value);
+    if (selectorBarrio.value == "all") {
+        mostrarCasas(casas);
+    } else {
+        mostrarCasas(casas.filter(el => el.barrio == selectorBarrio.value));
+    }
 })
 
-function filtrarCasas () {
-    const resultado = casas.filter(filtrarBarrio);
-    mostrarCasas(resultado);
-}
 
-function filtrarBarrio (casa) {
-    const {barrio} = datosBusqueda;
-    if (barrio) {
-        return casa.barrio === barrio;
-    }
-    return casa;
-}
+/*--------Llamo a la función que renderiza las cards de las casas--------*/ 
 
 mostrarCasas(casas);
 
