@@ -326,7 +326,7 @@ footer {
 @media (max-width: 800px) {
     .img-fondo {
         background-position: center;
-        background-size: cover;
+        background-size: auto;
     }
 
 
@@ -342,7 +342,7 @@ footer {
         width: 100%;
     }
    .img-fondo {
-        height: 100vh;
+        height: 105vh;
    }
    .formulario-elemento, .textarea-contacto {
     padding-left: 1rem;
