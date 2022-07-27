@@ -200,7 +200,18 @@
    height: 2rem;
 }
 
-
+.formulario-completo {
+    border: 1px solid #38b000;
+}
+.formulario-incompleto {
+    border: 1.5px solid #bf0603;
+}
+.mensaje-de-error {
+    background-color: #d7d9ce;
+    color: #bf0603;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+}
 
 /* --------Footer--------*/
 footer {

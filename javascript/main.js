@@ -179,6 +179,18 @@ validacion ();
 function formularioIncial () {
     botonFormulario.disabled= true;
     botonFormulario.classList.add("opacity-25");
+    if (nombre.classList.contains("formulario-completo")){
+        nombre.classList.remove("formulario-completo");
+    }
+    if (apellido.classList.contains("formulario-completo")){
+        apellido.classList.remove("formulario-completo");
+    }
+    if (email.classList.contains("formulario-completo")){
+        email.classList.remove("formulario-completo");
+    }
+    if (textArea.classList.contains("formulario-completo")){
+        textArea.classList.remove("formulario-completo");
+    }
 }
 
 
