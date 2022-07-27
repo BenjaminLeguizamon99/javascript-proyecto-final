@@ -203,11 +203,11 @@
    height: 2rem;
 }
 .formulario-completo {
-    border: 2px solid #70e000;
+    border: 1px solid #70e000;
     transition: .5s;
 }
 .formulario-incompleto {
-    border: 2px solid #d80032;
+    border: 1px solid #d80032;
     transition: .5s;
 }
 .mensaje-de-error {
