@@ -147,7 +147,7 @@ function recuperar () {
 }
 recuperar();
 
-// Modal
+// Aparición de la ventana modal
 
 const modal = document.querySelector(".ventana-emergente");
 const openModal = document.getElementById("abrir-modal");
@@ -168,25 +168,131 @@ let apellido = document.getElementById("formulario-apellido");
 let email = document.getElementById("formulario-email");
 let textArea = document.querySelector(".textarea-contacto");
 const botonFormulario = document.querySelector(".boton-contacto");
-
 const formulario = document.getElementById("formulario");
-formulario.addEventListener("input", (e) => {
-    e.preventDefault();
-    if((nombre.value.length != 0) && (apellido.value.length != 0) && (email.value.length !=0) && (textArea.value.length != 0)) {
-        botonFormulario.addEventListener("click", () => {
-            swal ({
-                title: "Genial",
-                text: "Tu mensaje ha sido enviado con éxito!",
-                icon: "success",
-            })
-        })
+// Expresión regular
+const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          
+
+formularioIncial();
+validacion ();
+
+function formularioIncial () {
+    botonFormulario.disabled= true;
+    botonFormulario.classList.add("opacity-25");
+}
+
+
+function validacion () {
+    nombre.addEventListener("blur", validarNombre);
+    apellido.addEventListener("blur", validarApellido);
+    textArea.addEventListener("blur", validarMensaje);
+    email.addEventListener("blur", validarEmail);
+    botonFormulario.addEventListener("click", enviarMail);
+    formulario.addEventListener("change", habilitarBoton);
+}
+
+function validarNombre(e) {
+    if (e.target.value.length > 0) {
+        nombre.classList.add("formulario-completo");
+
+        //Elimina los errores una vez que se completa correctamente el formulario
+        if(nombre.classList.contains("formulario-incompleto")) {
+            nombre.classList.remove("formulario-incompleto");
+            const error = document.querySelector("p.mensaje-de-error");
+            error.remove();
+        }
     } else {
-        botonFormulario.addEventListener ("click", () => {
-            swal ({
-                title: "Error",
-                text: "Debe completar todos los campos correctamente",
-                icon: "error",
-            })
-        })
+        nombre.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
     }
-});
+}
+
+function validarApellido (e) {
+    if(e.target.value.length > 0) {
+        apellido.classList.add("formulario-completo");
+        //Elimina los errores una vez que se completa correctamente el formulario
+        if(apellido.classList.contains("formulario-incompleto")) {
+            apellido.classList.remove("formulario-incompleto");
+            const error = document.querySelector("p.mensaje-de-error");
+            error.remove();
+        }
+    } else {
+        apellido.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
+    }
+}
+
+function validarMensaje (e) {
+    if(e.target.value.length > 0) {
+        textArea.classList.add("formulario-completo");
+        //Elimina los errores una vez que se completa correctamente el formulario
+        if(textArea.classList.contains("formulario-incompleto")) {
+            textArea.classList.remove("formulario-incompleto");
+            const error = document.querySelector("p.mensaje-de-error");
+            error.remove();
+        }
+    } else {
+        textArea.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
+    }
+}
+function validarEmail (e) {
+    if(e.target.value.length > 0){
+          
+        if (er.test(e.target.value)) {
+            email.classList.add("formulario-completo");
+            //Elimina los errores una vez que se completa correctamente el formulario
+            if(email.classList.contains("formulario-incompleto")) {
+                email.classList.remove("formulario-incompleto");
+                const error = document.querySelector("p.mensaje-de-error");
+                error.remove();
+            }
+        } else {
+            email.classList.add("formulario-incompleto");
+            mostrarError("Email no válido!");
+        }
+    } else {
+        email.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
+    }
+   
+};
+
+function mostrarError (mensaje) {
+    const mensajeError = document.createElement("p");
+    mensajeError.textContent = mensaje;
+    mensajeError.classList.add("mensaje-de-error", "col-md-12", "p-3","my-3", "text-center", "error");
+    
+    const errores = document.querySelectorAll(".error");
+    if (errores.length === 0) {
+        formulario.appendChild(mensajeError);
+    }
+
+};
+
+function habilitarBoton () {
+    if(er.test(email.value) && nombre.value !== "" && apellido.value !== "" && textArea.value !== "") {
+        botonFormulario.disabled= false;
+        botonFormulario.classList.remove("opacity-25");
+    }
+}
+
+function enviarMail (e) {
+    e.preventDefault();
+    if(er.test(email.value) && nombre.value !== "" && apellido.value !== "" && textArea.value !== "") {
+        
+        swal({
+            title: 'Listo!',
+            text: 'Su consulta fue enviada con éxito',
+            icon: 'success',
+            button: 'Aceptar'
+          })
+    }
+    // Despues de que muestra el sweet alert quiero que limpie el formulario y bloquee de nuevo el boton de enviar
+    resetearFormulario();
+    formularioIncial();
+};
+
+function resetearFormulario () {
+    formulario.reset();
+}
