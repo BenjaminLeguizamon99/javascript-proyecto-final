@@ -151,16 +151,6 @@ closeModal.addEventListener("click", () => {
     modal.classList.toggle("modal-show");
 })
 
-//Sweet alert al boton de enviar formulario
-// const botonFormulario = document.querySelector(".boton-contacto");
-// botonFormulario.addEventListener("click", ()=>{
-//     swal({
-//         title: "Genial",
-//         text: "Tu consulta ha sido enviada con éxito!",
-//         icon: "success",
-//         showConfirmButton: false,
-//     })
-// })
 
 //Validación del formulario.
 
@@ -169,25 +159,90 @@ let apellido = document.getElementById("formulario-apellido");
 let email = document.getElementById("formulario-email");
 let textArea = document.querySelector(".textarea-contacto");
 const botonFormulario = document.querySelector(".boton-contacto");
-
 const formulario = document.getElementById("formulario");
-formulario.addEventListener("input", (e) => {
-    e.preventDefault();
-    if((nombre.value.length != 0) && (apellido.value.length != 0) && (email.value.length !=0) && (textArea.value.length != 0)) {
-        botonFormulario.addEventListener("click", () => {
-            swal ({
-                title: "Genial",
-                text: "Tu mensaje ha sido enviado con éxito!",
-                icon: "success",
-            })
-        })
+
+
+botonFormulario.disabled = true;
+botonFormulario.classList.add("opacity-25");
+
+validacion();
+
+function validacion () {
+    nombre.addEventListener("blur", validarNombre);
+    apellido.addEventListener("blur", validarApellido);
+    textArea.addEventListener("blur", validarMensaje);
+    email.addEventListener("blur", validarEmail);
+}
+
+function validarNombre(e) {
+    if (e.target.value.length > 0) {
+        nombre.classList.add("formulario-completo");
+
+        //Elimina los errores
+        const error = document.querySelector("p.mensaje-de-error");
+        error.remove();
+        nombre.classList.remove("formulario-incompleto")
     } else {
-        botonFormulario.addEventListener ("click", () => {
-            swal ({
-                title: "Error",
-                text: "Debe completar todos los campos correctamente",
-                icon: "error",
-            })
-        })
+        nombre.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
     }
-});
+}
+
+function validarApellido (e) {
+    if(e.target.value.length > 0) {
+        apellido.classList.add("formulario-completo");
+        //Elimina los errores
+        const error = document.querySelector("p.mensaje-de-error");
+        error.remove();
+        apellido.classList.remove("formulario-incompleto");
+    } else {
+        apellido.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
+    }
+}
+
+function validarMensaje (e) {
+    if(e.target.value.length > 0) {
+        textArea.classList.add("formulario-completo");
+        //Elimina los errores
+        const error = document.querySelector("p.mensaje-de-error");
+        error.remove();
+        textArea.classList.remove("formulario-incompleto");
+    } else {
+        textArea.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
+    }
+}
+function validarEmail (e) {
+    if(e.target.value.length > 0){
+         // Expresión regular
+        const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            
+        if (er.test(e.target.value)) {
+            email.classList.add("formulario-completo");
+            //Elimina los errores
+            const error = document.querySelector("p.mensaje-de-error");
+            error.remove();
+            email.classList.remove("formulario-incompleto");
+        } else {
+            email.classList.add("formulario-incompleto");
+            mostrarError("Email no válido!");
+        }
+    } else {
+        email.classList.add("formulario-incompleto");
+        mostrarError("Todos los campos son obligatorios!");
+    }
+   
+};
+
+function mostrarError (mensaje) {
+    const mensajeError = document.createElement("p");
+    mensajeError.textContent = mensaje;
+    mensajeError.classList.add("mensaje-de-error", "col-md-12", "p-3", "text-center", "error");
+    
+    const errores = document.querySelectorAll(".error");
+    if (errores.length === 0) {
+        formulario.appendChild(mensajeError);
+    }
+
+};

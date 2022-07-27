@@ -202,22 +202,21 @@
     width: 15%;
    height: 2rem;
 }
-.mapouter{
-    position:relative;
-    text-align:right;
-    height:300px;
-    width:500px;
-    margin-left: 2rem;
+.formulario-completo {
+    border: 2px solid #70e000;
+    transition: .5s;
 }
-.gmap_canvas {
-    overflow:hidden;
-    background:none;
-    height:300px;
-    width:500px;
-    border-radius: 1rem;
+.formulario-incompleto {
+    border: 2px solid #d80032;
+    transition: .5s;
 }
-
-
+.mensaje-de-error {
+    border: 2px solid #d80032;
+    transition: .3s;
+    border-radius: .7rem;
+    color: #d80032;
+    background-color: #d7d9ce;
+}
 
 /* --------Footer--------*/
 footer {
