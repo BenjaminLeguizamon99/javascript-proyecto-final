@@ -78,7 +78,8 @@ function agregarAgenda (id)  {
 
 //Renderizar las casas que se agregan a la agenda
 
-let contenedorAgenda = document.getElementById("contenedor-agenda")
+let contenedorAgenda = document.getElementById("contenedor-agenda");
+
 
 function mostrarCasasEnModal (casaAgregar) {
     let div = document.createElement(`div`);
@@ -95,16 +96,17 @@ function mostrarCasasEnModal (casaAgregar) {
                         </div>
                         <div class="col-md-3">
                             <h5 class="fecha-titulo">Seleccione una fecha para la visita</h5>
-                            <input type="date" name="Calendario" min="2022/07/06" max="2023/01/01" id="nada" class="calendario">
+                            <input type="date" name="Calendario" min="2022/07/27" max="2023/01/01" class="calendario">
                             <div class="row botones-agenda">
                                 <div><button class="btn-confirmar elemento-a-reemplazar" id="btn-confirmar-${casaAgregar.id}">Confirmar</button></div>
-                                <div><button class="btn-eliminar" id="btn-eliminar-${casaAgregar.id}" dataset-item="item">Eliminar cita</button></div>
-                            </div>
+                                <div><button class="btn-eliminar contenedor-texto-confirmacion" id="btn-eliminar-${casaAgregar.id}" dataset-item="item">Eliminar cita</button></div>
+                                </div>
                         </div>
                     </div>`
 
     contenedorAgenda.appendChild(div);
     
+
     
     //Boton para eliminar una casa del modal
     let btnEliminar = document.getElementById(`btn-eliminar-${casaAgregar.id}`);
@@ -125,8 +127,19 @@ function mostrarCasasEnModal (casaAgregar) {
             timer: 2000,
         }
         )
+        // Crear una función que elimine el calendario, el boton de confirmar y que muestre un mensaje con la fecha seleccionada.
+        eliminarCalendarioYBoton();
+        mostrarFechaSeleccionada();
     })
+
 }
+
+function eliminarCalendarioYBoton () {
+
+};
+function mostrarFechaSeleccionada () {
+    
+};
 
 
 //Funcion de actualizar la agenda (el numerito que se ve en la página principal)
